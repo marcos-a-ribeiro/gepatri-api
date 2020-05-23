@@ -1,68 +1,69 @@
 --------------------------------------------------------------------
-API REST - Sistema Gerenciamento de Patrimônios
---------------------------------------------------------------------
-Endpoints (Patrimonios):
-
-• GET patrimonios - Obter todos os patrimônios.
-
-• GET patrimonios/page - Retorna uma lista paginada.
-	Parametros:
-		page		: número da página solicitada (inicia em zero).
-		linesPerPage: quantidade de linhas por página (default = 12).
-		orderBy		: campo utilizado para ordenação (default = nome).
-		direction	: ascendente(ASC) ou descendente(DESC) (default = ASC).
-		nome		: retorna os patrímonios cujos nomes contenham o respectivo parâmetro (default *).
-
-• GET patrimonios/{id} - Obter um patrimônio por ID.
-	Parametros:
-		id			: Id do patrimônio (path variable).
-
-• POST patrimonios - Inserir um novo patrimônio.
-	Parametros:
-		nome 		: Nome do patrimonio.
-		descricao	: Descrição.
-		marcaId		: Id da marca.
-
-• PUT patrimonios/{id} - Alterar os dados de um patrimônio.
-	Parametros:
-		id			: Id do patrimônio (path variable).
-		nome 		: Nome do patrimônio.
-		descricao	: Descrição.
-		marcaId		: Id da marca.
-
-• DELETE patrimonios/{id} - Excluir um patrimônio.
-	Parametros:
-		id			: Id do patrimônio (path variable).
-
-Endpoints (Marcas):
-
-• GET marcas - Obter todas as marcas
-
-• GET marcas/page - Retorna uma lista paginada das marcas que atendam ao critério de pesquisa (nome).
-	Parametros:
-		page		: número da página solicitada (inicia em zero).
-		linesPerPage: quantidade de linhas por página (default = 12).
-		orderBy		: campo utilizado para ordenação (default = nome).
-		direction	: ascendente(ASC) ou descendente(DESC) (default = ASC).
-		nome		: retorna as marcas cujos nomes contenham o respectivo parâmetro (default *).
-		
-• GET marcas/{id} - Obter uma marca por ID.
-	Parametros:
-		id			: Id da marca (path variable).
-
-• GET marcas/{id}/patrimonios – Obter todos os patrimônios de uma marca.
-	Parametros:
-		id			: Id da marca (path variable).
-
-• POST marcas - Inserir uma nova marca.
-	Parametros:
-		nome 		: Nome da marca.
-
-• PUT marca/{id} - Alterar os dados de uma marca.
-	Parametros:
-		id			: Id da marca (path variable).
-		nome 		: Nome da marca.
-		
-• DELETE marca/{id} - Excluir uma marca.
-	Parametros:
-		id			: Id da marca (path variable).
+<br>API REST - Sistema Gerenciamento de Patrimônios
+<br>--------------------------------------------------------------------
+<br>Endpoints (Patrimonios):
+<br>
+<br>• GET patrimonios - Obter todos os patrimônios.
+<br>
+<br>• GET patrimonios/page - Retorna uma lista paginada.
+<br>	Parametros:
+<br>		page		: número da página solicitada (inicia em zero).
+<br>		linesPerPage: quantidade de linhas por página (default = 12).
+<br>		orderBy		: campo utilizado para ordenação (default = nome).
+<br>		direction	: ascendente(ASC) ou descendente(DESC) (default = ASC).
+<br>		nome		: retorna os patrímonios cujos nomes contenham o respectivo parâmetro (default *).
+<br>
+<br>• GET patrimonios/{id} - Obter um patrimônio por ID.
+<br>	Parametros:
+<br>		id			: Id do patrimônio (path variable).
+<br>
+<br>• POST patrimonios - Inserir um novo patrimônio.
+<br>	Parametros:
+<br>		nome 		: Nome do patrimonio.
+<br>		descricao	: Descrição.
+<br>		marcaId		: Id da marca.
+<br>
+<br>• PUT patrimonios/{id} - Alterar os dados de um patrimônio.
+<br>	Parametros:
+<br>		id			: Id do patrimônio (path variable).
+<br>		nome 		: Nome do patrimônio.
+<br>		descricao	: Descrição.
+<br>		marcaId		: Id da marca.
+<br>
+<br>• DELETE patrimonios/{id} - Excluir um patrimônio.
+<br>	Parametros:
+<br>		id			: Id do patrimônio (path variable).
+<br>
+<br>Endpoints (Marcas):
+<br>
+<br>• GET marcas - Obter todas as marcas
+<br>
+<br>• GET marcas/page - Retorna uma lista paginada das marcas que atendam ao critério de pesquisa (nome).
+<br>	Parametros:
+<br>		page		: número da página solicitada (inicia em zero).
+<br>		linesPerPage: quantidade de linhas por página (default = 12).
+<br>		orderBy		: campo utilizado para ordenação (default = nome).
+<br>		direction	: ascendente(ASC) ou descendente(DESC) (default = ASC).
+<br>		nome		: retorna as marcas cujos nomes contenham o respectivo parâmetro (default *).
+<br>		
+<br>• GET marcas/{id} - Obter uma marca por ID.
+<br>	Parametros:
+<br>		id			: Id da marca (path variable).
+<br>
+<br>• GET marcas/{id}/patrimonios – Obter todos os patrimônios de uma marca.
+<br>	Parametros:
+<br>		id			: Id da marca (path variable).
+<br>
+<br>• POST marcas - Inserir uma nova marca.
+<br>	Parametros:
+<br>		nome 		: Nome da marca.
+<br>
+<br>• PUT marca/{id} - Alterar os dados de uma marca.
+<br>	Parametros:
+<br>		id			: Id da marca (path variable).
+<br>		nome 		: Nome da marca.
+<br>		
+<br>• DELETE marca/{id} - Excluir uma marca.
+<br>	Parametros:
+<br>		id			: Id da marca (path variable).
+<br>
