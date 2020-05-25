@@ -11,7 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gepatri.dominio.Marca;
-import com.gepatri.dominio.Patrimonio;
+import com.gepatri.dto.MarcaDTO;
 import com.gepatri.repository.MarcaRepository;
 import com.gepatri.services.exception.DataIntegrityException;
 import com.gepatri.services.exception.ObjectNotFoundException;
@@ -22,7 +22,7 @@ public class MarcaService {
 	@Autowired
 	private MarcaRepository repo;
 	
-	public Marca find(Integer id) {
+	public Marca findById(Integer id) {
 		Optional<Marca> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				 "Objeto não encontrado! Id: " + id + ", Tipo: " + Marca.class.getName()));
@@ -43,25 +43,28 @@ public class MarcaService {
 		return repo.findByNomeContaining(nome, pageRequest);
 	}
 	
-	public Marca insert(Marca patri) {
-		patri.setId(null);
-		patri = repo.save(patri);
-		return patri;
+	public Marca insert(Marca marca) {
+		marca.setId(null);
+		return repo.save(marca);
 	}
 	
 	public Marca update(Marca obj) {
-		Marca newObj = find(obj.getId());
+		Marca newObj = findById(obj.getId());
 		newObj.setNome(obj.getNome());
 		return repo.save(newObj);
 	}
 	
 	public void delete(Integer id) {
-		find(id);
+		findById(id);
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível excluir uma marca que possui patrimônios");
 		}
-	}		
+	}
+	
+	public Marca fromDTO(MarcaDTO marcaDTO) {
+		return new Marca(marcaDTO.getId(), marcaDTO.getNome());
+	}
 }
 

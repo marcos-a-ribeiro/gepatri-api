@@ -71,7 +71,7 @@ public class PatrimonioResource {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<PatrimonioDTO> insert(@RequestBody PatrimonioNewDTO patriNewDTO) {
+	public ResponseEntity<PatrimonioDTO> insert(@Valid @RequestBody PatrimonioNewDTO patriNewDTO) {
 		Patrimonio patri = service.fromDTO(patriNewDTO);
 		patri = service.insert(patri);
 		PatrimonioDTO patrimonioDTO = new PatrimonioDTO(patri);

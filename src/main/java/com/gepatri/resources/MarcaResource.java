@@ -36,7 +36,7 @@ public class MarcaResource {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Marca> find(@PathVariable Integer id) {
-		Marca marca = service.find(id);
+		Marca marca = service.findById(id);
 		return ResponseEntity.ok().body(marca);
 	}
 
@@ -66,20 +66,23 @@ public class MarcaResource {
 	
 	@RequestMapping(value = "/{id}/patrimonios", method = RequestMethod.GET)
 	public ResponseEntity<List<Patrimonio>> getPatrimonios(@PathVariable Integer id) {
-		Marca marca = service.find(id);
+		Marca marca = service.findById(id);
 		return ResponseEntity.ok().body(marca.getPatrimonios());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Marca> insert(@RequestBody Marca marca) {
+	public ResponseEntity<MarcaDTO> insert(@Valid @RequestBody MarcaDTO marcaDTO) {
+		Marca marca = service.fromDTO(marcaDTO);
 		marca = service.insert(marca);
+		marcaDTO.setId(marca.getId());
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(marca.getId()).toUri();
-		return ResponseEntity.created(uri).body(marca);
+		return ResponseEntity.created(uri).body(marcaDTO);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody Marca marca, @PathVariable Integer id) {
-		marca.setId(id);
+	public ResponseEntity<Void> update(@Valid @RequestBody MarcaDTO marcaDTO, @PathVariable Integer id) {
+		Marca marca = service.findById(id);
+		marca.setNome(marcaDTO.getNome());
 		marca = service.update(marca);
 		return ResponseEntity.noContent().build();
 	}

@@ -3,6 +3,7 @@ package com.gepatri.dominio;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,10 @@ public class Patrimonio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(length = 50)
 	private String nome;
+
+	@Column(length = 150)
 	private String descricao;
 
 	@JsonIgnore

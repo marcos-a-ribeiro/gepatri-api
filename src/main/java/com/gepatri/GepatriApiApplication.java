@@ -28,7 +28,7 @@ public class GepatriApiApplication implements CommandLineRunner {
 	}
 
 	// INSERE ALGUNS REGISTROS PARA TESTES
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -43,6 +43,5 @@ public class GepatriApiApplication implements CommandLineRunner {
 		Patrimonio p2 = new Patrimonio(null, "TV", "55 4k", m1);
 		
 		patrimonioRepository.saveAll(Arrays.asList(p1, p2));
-		
 	}
 }
